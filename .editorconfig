@@ -1,0 +1,24 @@
+# Archivo base
+root=true
+
+# Todos los archivos
+[*]
+# Final de línea
+end_of_line=crlf
+trim_trailing_whitespace=true
+
+# Final de archivo
+insert_final_newline=true
+
+# Archivos de script
+[*.{tsx,ts,json}]
+# Indentación
+indent_style = space
+indent_size = 4
+
+# Tabulación
+tab_width = 4
+
+[/.git/**]
+end_of_line = unset
+trim_trailing_whitespace = false

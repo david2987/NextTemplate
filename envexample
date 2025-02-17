@@ -1,0 +1,48 @@
+# Environment variables declared in this file are automatically made available to Prisma.
+# See the documentation for more detail: https://pris.ly/d/prisma-schema#accessing-environment-variables-from-the-schema
+
+# Prisma supports the native connection string format for PostgreSQL, MySQL, SQLite, SQL Server, MongoDB and CockroachDB.
+# See the documentation for all the connection string options: https://pris.ly/d/connection-strings
+
+POSTGRES_PRISMA_URL="postgresql://postgres:pejeochoa@localhost:5432/testimplementation?schema=public"
+
+
+# Variables de vercel
+# POSTGRES_URL_NO_SSL=""
+POSTGRES_URL_NON_POOLING="postgresql://postgres:pejeochoa@localhost:5432/testimplementation?schema=public"
+# POSTGRES_USER=""
+# POSTGRES_HOST=""
+# POSTGRES_PASSWORD=""
+# POSTGRES_DATABASE=""
+
+
+NEXT_PUBLIC_NOMBRE_SISTEMA="Socios"
+SESSION_NAME="sociosnx"
+SESSION_SECRET="pfijoaff3fj3f90j3f9fokfoakfksf9-fiakfk3faflxckac0o-a"
+NEXTAUTH_SECRET="sdojkasojfaopfascvplm,"
+
+# Cambiar en prod a base url
+BASE_URL="http://localhost:3000"
+NEXTAUTH_URL="http://localhost:3000/"
+
+
+
+MIDDLEWARE_SECRET="ijaiopf03jf9jf910..3fj9djvkv9jadcov;a"
+
+SUPERADMIN_ID_ROL="1"
+SOCIO_ID_ROL="2"
+
+# Carga las config necesarias no las sobreescribe si ya existen
+# Recomendad poner 0 en develop a menos que se agregue una
+CARGAR_CONFIG="1"
+CARGAR_ACL="1"
+LIMPIAR_ACL="1"
+
+# Credenciales de minio
+# misma url creo solo en localhost, en produccion son distintas
+NEXT_PUBLIC_BUCKET_API_URL="http://127.0.0.1:9000"
+BUCKET_PRIVATE_API_URL="http://127.0.0.1:9000"
+
+NEXT_PUBLIC_BUCKET_NAME="sociosnx"
+BUCKET_ACCESS_KEY="falta"
+BUCKET_SECRET_KEY="falta"
