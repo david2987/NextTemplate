@@ -10,8 +10,10 @@
   },
   "dependencies": {
     "@raphiniert/ra-data-postgrest": "^2.4.1",
+    "@supabase/supabase-js": "^2.48.1",
     "next": "15.1.7",
     "ra-data-json-server": "^5.5.3",
+    "ra-data-simple-rest": "^5.5.3",
     "ra-input-rich-text": "^5.5.3",
     "react": "^19.0.0",
     "react-admin": "^5.5.3",
