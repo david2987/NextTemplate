@@ -1,7 +1,7 @@
 // in src/components/AdminApp.tsx
 import * as React from "react";
-import { Admin, Resource, ListGuesser, EditGuesser, fetchUtils, Authenticated, Login } from 'react-admin';
-
+import { Admin, Resource, ListGuesser, EditGuesser, fetchUtils, Authenticated } from 'react-admin';
+import { MyLoginPage } from "./auth/Login";
 import postgrestRestProvider, {
     IDataProviderConfig,
     defaultPrimaryKeys,
@@ -10,6 +10,7 @@ import postgrestRestProvider, {
 import { PostCreate } from "./posts/Create";
 import PostList from "./posts/List";
 import { authProvider } from "../../utils/authProvider";
+import { i18nProvider } from "@/utils/i18nProvider";
 
 
 
@@ -21,22 +22,11 @@ const config: IDataProviderConfig = {
     schema: defaultSchema,
 };
 
-const MyLoginPage = () => (
-    <Login backgroundImage="https://acme.com/img/background.png" />
-);
-
-const Ready = () => (
-    <div>
-        <h1>Admin ready</h1>
-        <p>You can now add resources</p>
-    </div>
-)
 
 const dataProvider = postgrestRestProvider(config);
-
 const AdminApp = () => (
     <>
-        <Admin ready={MyLoginPage} loginPage={false} dataProvider={dataProvider} authProvider={authProvider}>
+        <Admin i18nProvider={i18nProvider} ready={MyLoginPage} loginPage={false} dataProvider={dataProvider} authProvider={authProvider}>
             <Authenticated>
                 <Resource name="users" list={ListGuesser} edit={EditGuesser} recordRepresentation="name" />
                 <Resource name="posts" create={PostCreate} list={PostList} edit={EditGuesser} recordRepresentation="title" />
