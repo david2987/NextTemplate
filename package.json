@@ -12,6 +12,7 @@
     "@blackbox-vision/ra-language-spanish": "^4.11.3",
     "@raphiniert/ra-data-postgrest": "^2.4.1",
     "@supabase/supabase-js": "^2.48.1",
+    "argon2": "^0.41.1",
     "next": "15.1.7",
     "node-polyglot": "^2.6.0",
     "ra-data-json-server": "^5.5.3",
@@ -22,7 +23,7 @@
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@auth/core": "^0.34.2",
+    "@auth/core": "^0.37.4",
     "@aws-sdk/client-s3": "^3.744.0",
     "@prisma/client": "^6.3.1",
     "@radix-ui/react-accordion": "^1.2.3",
@@ -54,6 +55,7 @@
     "@tiptap/pm": "^2.11.5",
     "@tiptap/react": "^2.11.5",
     "@tiptap/starter-kit": "^2.11.5",
+    "@types/bcrypt": "^5.0.2",
     "@types/react": "19.0.10",
     "@types/server": "^1.0.11",
     "@typeschema/main": "^0.14.1",
@@ -72,7 +74,7 @@
     "husky": "^9.1.7",
     "lodash": "^4.17.21",
     "next": "^15.1.0",
-    "next-auth": "^4.24.11",
+    "next-auth": "^4.24.7",
     "next-connect": "^1.0.0",
     "next-safe-action": "^7.10.3",
     "nextjs-toploader": "^3.7.15",

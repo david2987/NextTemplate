@@ -22,23 +22,27 @@ const config: IDataProviderConfig = {
     schema: defaultSchema,
 };
 
+const buscaSiEstaAutenticado = () => {
+    return localStorage.getItem('auth') ? true : false;
+}
 
 const dataProvider = postgrestRestProvider(config);
-const AdminApp = () => (
+const AdminApp = () => buscaSiEstaAutenticado() ? (
     <>
-        <Admin i18nProvider={i18nProvider} ready={MyLoginPage} loginPage={false} dataProvider={dataProvider} authProvider={authProvider}>
-            <Authenticated>
-                <Resource name="users" list={ListGuesser} edit={EditGuesser} recordRepresentation="name" />
-                <Resource name="posts" create={PostCreate} list={PostList} edit={EditGuesser} recordRepresentation="title" />
-                <Resource name="comments" list={ListGuesser} edit={EditGuesser} />
-            </Authenticated>
+        <Admin i18nProvider={i18nProvider} ready={MyLoginPage} loginPage={MyLoginPage} dataProvider={dataProvider} authProvider={authProvider}>
+            <Resource name="users" list={ListGuesser} edit={EditGuesser} recordRepresentation="name" />
+            <Resource name="posts" create={PostCreate} list={PostList} edit={EditGuesser} recordRepresentation="title" />
+            <Resource name="comments" list={ListGuesser} edit={EditGuesser} />
         </Admin>
     </>
-    // <Admin dataProvider={dataProvider}>
-    //     <Resource name="users" list={ListGuesser} edit={EditGuesser} recordRepresentation="name" />
-    //     <Resource name="posts" create={PostCreate} list={PostList} edit={EditGuesser} recordRepresentation="title" />
-    //     <Resource name="comments" list={ListGuesser} edit={EditGuesser} />
-    // </Admin>
-);
+) : <>
+    <Admin i18nProvider={i18nProvider} ready={MyLoginPage} loginPage={MyLoginPage} dataProvider={dataProvider} authProvider={authProvider}>
+        <Authenticated>
+            <Resource name="users" list={ListGuesser} edit={EditGuesser} recordRepresentation="name" />
+            <Resource name="posts" create={PostCreate} list={PostList} edit={EditGuesser} recordRepresentation="title" />
+            <Resource name="comments" list={ListGuesser} edit={EditGuesser} />
+        </Authenticated>
+    </Admin>
+</>;
 
 export default AdminApp;

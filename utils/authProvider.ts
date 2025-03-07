@@ -3,26 +3,35 @@ interface LoginParams {
     password: string;
   }
 
+
+
 export const authProvider = {
     async login({ username, password }: LoginParams)  {
-
 
         const request = new Request('/api/auth/login', {
             method: 'POST',
             body: JSON.stringify({ username, password }),
             headers: new Headers({ 'Content-Type': 'application/json' }),
         });
-        let response;
+        let response:Response
         try {
+
             response = await fetch(request);
+            console.log(response);
+
+            // return response;
+
         } catch (_error) {
             throw new Error('Network error');
+            return;
         }
         if (response.status < 200 || response.status >= 300) {
-            throw new Error(response.statusText);
+            throw new Error(response.error);
+            return;
         }
         const auth = await response.json();
         localStorage.setItem('auth', JSON.stringify(auth));
+        window.location.reload()
     },
     async checkError(error:any) {
         const status = error.status;
@@ -40,6 +49,9 @@ export const authProvider = {
     },
     async logout() {
         localStorage.removeItem('auth');
-        return '/';
+        setTimeout(()=>{
+            window.location.reload();
+        },2600)
+
     },
 };
